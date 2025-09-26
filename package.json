@@ -1,0 +1,33 @@
+{
+  "name": "cxresume",
+  "version": "0.1.0",
+  "description": "Resume Codex sessions from ~/.codex/session with an interactive CLI and context compression.",
+  "bin": {
+    "cxresume": "bin/cxresume.js"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "codex",
+    "resume",
+    "cli",
+    "jsonl",
+    "sessions"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "clipboardy": "^4.0.0",
+    "dayjs": "^1.11.13",
+    "enquirer": "^2.4.1",
+    "execa": "^8.0.1",
+    "fast-glob": "^3.3.2",
+    "cli-truncate": "^4.0.0",
+    "string-width": "^7.1.0",
+    "node-pty": "^1.0.0",
+    "blessed": "^0.1.81"
+  }
+}
