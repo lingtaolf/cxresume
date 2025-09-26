@@ -1,98 +1,20 @@
 cxresume
 ========
-[中文](https://github.com/lingtaolf/cxresume/blob/master/README-zh.md) ｜ [English](https://github.com/lingtaolf/cxresume/blob/master/README.md)
+[![npm version](https://img.shields.io/npm/v/cxresume.svg?logo=npm)](https://www.npmjs.com/package/cxresume)
 
-![png](https://github.com/lingtaolf/cxresume/blob/master/ss/sc.png)
-
-Resume Codex sessions from `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` with an interactive picker. It builds a compressed “resume primer” and helps you launch Codex so you can continue where you left off.
-
-Install
-
-- Node.js 18+
-- npm install -g cxresume (from this repo once published)
-
-Usage
-
-- cxresume — opens a split-pane TUI: the top pane lists sessions; the bottom pane previews recent dialog. Press Enter to start Codex with a compressed full-history primer passed inline as an argument (auto‑fallback to pty/clipboard if too long).
-
- Options
-
-- --list — list recent session files
-- --open <file> — open a specific session jsonl (relative to root or absolute)
-- --root <dir> — override sessions root (default: ~/.codex/sessions)
-- --codex <cmd> — override codex launch command (default: codex)
-- --print — only print the primer and exit
-- --no-launch — copy primer to clipboard but do not launch Codex
-- --search <text> — content search across all sessions, then pick from matches
-- --legacy-ui — use the legacy single-prompt selector (no split view)
-- --preview / --no-preview — enable/disable preview before launching
-- -y, --yes — skip interactive confirms (still shows a brief preview)
-
-TUI (ccresume-like) interactions
-
-- Navigation: ↑/↓ to move selection; ←/→ to change pages
-- Preview scroll: j/k to scroll the preview pane
-- Resume: Enter to resume selected session (builds primer and launches Codex)
-- New session: n to start a new Codex session in the selected session’s directory (no primer injection)
-- Edit options: - to edit extra command-line options appended to your `codex` command
-- Copy ID: c to copy the session identifier (relative path) to clipboard
-- Full view: f to toggle full preview view
-- Quit: q or Esc to exit
-
-Filters
-
-- Dot filter: `cxresume .` shows only sessions whose recorded working directory matches your current directory (best-effort; depends on logs containing cwd)
-- Hide in preview: `--hide [tool|thinking|user|assistant|system]` (default when provided without args: `tool thinking`)
-
-Config
-
-- Place a JSON config at `~/.config/cxresume/config.json`:
-  {
-    "logsRoot": "/home/me/.codex/sessions",
-    "codexCmd": "codex",
-    "preview": false,
-    "inject": "inline",
-    "injectDelayMs": 1000,
-    "injectWakeEnter": false,
-    "injectWakeDelayMs": 250,
-    "inlineArgMaxChars": 120000,
-    "primerAllPerMessageMax": 400,
-    "primerAllTargetChars": 10000
-  }
-
-How it works
-
-- Discovers `*.jsonl` logs under the sessions root.
-- Parses each line; collects user/assistant/system messages.
-- Builds a primer text (compressed full history by default):
-  - A short instruction block asking Codex to ingest silently.
-  - Session metadata (range, counts).
-  - All messages included in chronological order, each message content truncated to fit an overall budget (tunable via config).
-
-Notes
-
-- Default injection is inline parameter: cxresume passes the primer as a single argument to your `codexCmd`. If it exceeds a safe size, cxresume falls back to pty/clipboard automatically.
- 
-
-Examples
-
-- Pick interactively with preview, auto-inject primer:
-  cxresume
-
-- Search content (e.g., "bgPhoto") then pick from matches:
-  cxresume --search bgPhoto
-
-- Open a specific file and start immediately:
-  cxresume --open 2025/09/24/sample.jsonl -y
-cxresume
-========
+[中文说明](./README-zh.md)
 
 Resume Codex sessions from `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` with an interactive TUI. cxresume builds a compressed full‑history “primer” and launches Codex so you can continue right where you left off.
 
 Install
 
 - Node.js 18+
-- npm install -g from this repo: `npm i -g .`
+- Global install (recommended): `npm i -g cxresume`
+- Verify: `cxresume --help`
+- Upgrade: `npm i -g cxresume@latest`
+- Uninstall: `npm uninstall -g cxresume`
+
+Tip: one‑off run without installing: `npx cxresume --help`
 
 Quick Start
 

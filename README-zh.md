@@ -1,15 +1,20 @@
 cxresume
 ========
-[中文](https://github.com/lingtaolf/cxresume/blob/master/README-zh.md) ｜ [English](https://github.com/lingtaolf/cxresume/blob/master/README.md)  
-  
-![png](https://github.com/lingtaolf/cxresume/blob/master/ss/sc.png)
+[![npm version](https://img.shields.io/npm/v/cxresume.svg?logo=npm)](https://www.npmjs.com/package/cxresume)
+
+[English](./README.md)
 
 一个交互式 TUI 工具，从 `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` 发现 Codex 历史会话，自动构建“全量压缩 Primer”，并启动 Codex 让你无缝继续对话。
 
 安装
 
 - Node.js 18+
-- 在本仓库执行全局安装：`npm i -g .`
+- 全局安装（推荐）：`npm i -g cxresume`
+- 验证：`cxresume --help`
+- 升级：`npm i -g cxresume@latest`
+- 卸载：`npm uninstall -g cxresume`
+
+提示：一次性运行可使用 `npx cxresume --help`
 
 快速开始
 
@@ -95,4 +100,3 @@ cxresume
 许可协议
 
 MIT
-
