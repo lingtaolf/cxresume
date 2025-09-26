@@ -4,6 +4,8 @@ cxresume
 
 [English](./README.md)
 
+![cxresume](./ss/sc.png)
+
 一个交互式 TUI 工具，从 `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` 发现 Codex 历史会话，自动构建“全量压缩 Primer”，并启动 Codex 让你无缝继续对话。
 
 安装
