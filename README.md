@@ -1,3 +1,4 @@
+[中文](https://github.com/lingtaolf/cxresume/blob/master/README-zh.md) ｜ [English](https://github.com/lingtaolf/cxresume/blob/master/README.md)
 cxresume
 ========
 ![png](https://github.com/lingtaolf/cxresume/blob/master/ss/sc.png)
