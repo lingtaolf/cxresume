@@ -1,6 +1,6 @@
 cxresume
 ========
-[png](https://github.com/lingtaolf/cxresume/blob/master/ss/sc.png)
+![png](https://github.com/lingtaolf/cxresume/blob/master/ss/sc.png)
 
 Resume Codex sessions from `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` with an interactive picker. It builds a compressed “resume primer” and helps you launch Codex so you can continue where you left off.
 
