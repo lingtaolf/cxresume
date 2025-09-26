@@ -4,6 +4,8 @@ cxresume
 
 [中文说明](./README-zh.md)
 
+![cxresume](./ss/sc.png)
+
 Resume Codex sessions from `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` with an interactive TUI. cxresume builds a compressed full‑history “primer” and launches Codex so you can continue right where you left off.
 
 Install
