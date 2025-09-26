@@ -1,6 +1,7 @@
-[中文](https://github.com/lingtaolf/cxresume/blob/master/README-zh.md) ｜ [English](https://github.com/lingtaolf/cxresume/blob/master/README.md)
 cxresume
 ========
+[中文](https://github.com/lingtaolf/cxresume/blob/master/README-zh.md) ｜ [English](https://github.com/lingtaolf/cxresume/blob/master/README.md)
+
 ![png](https://github.com/lingtaolf/cxresume/blob/master/ss/sc.png)
 
 Resume Codex sessions from `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` with an interactive picker. It builds a compressed “resume primer” and helps you launch Codex so you can continue where you left off.
