@@ -1,12 +1,12 @@
-cxresume
-========
+cxresume (Codex Resume CLI)
+===========================
 [![npm version](https://img.shields.io/npm/v/cxresume.svg?logo=npm)](https://www.npmjs.com/package/cxresume)
 
 [中文说明](./README-zh.md)
 
-![cxresume](./ss/sc.png)
+![Codex Resume TUI – resume Codex sessions, load sessions from history](./ss/sc.png)
 
-Resume Codex sessions from `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` with an interactive TUI. cxresume builds a compressed full‑history “primer” and launches Codex so you can continue right where you left off.
+Codex Resume (cxresume) is a tiny CLI/TUI to resume Codex sessions fast: it discovers and loads sessions from history under `~/.codex/sessions`, compresses the conversation into a single primer, and launches Codex so you can pick up where you left off. If you’re searching for “codex resume”, “resume codex sessions”, or “load sessions from history”, this tool is built for exactly that workflow.
 
 Install
 
@@ -20,7 +20,15 @@ Tip: one‑off run without installing: `npx cxresume --help`
 
 Quick Start
 
-- `cxresume` — opens a split‑pane TUI. The top pane lists sessions; the bottom pane previews recent dialog. Press Enter to start Codex with a compressed full‑history primer passed inline as a single argument. If the argument is too long, cxresume automatically falls back to pty/clipboard injection.
+- `cxresume` — opens a split‑pane TUI. The top pane lists sessions; the bottom pane previews recent dialog. Press Enter to resume Codex sessions with a compressed full‑history primer passed inline as a single argument. If the argument is too long, cxresume automatically falls back to pty/clipboard injection.
+
+Why cxresume
+
+- Resume Codex sessions instantly from prior logs
+- Search and load sessions from history with one command
+- Lossy compression keeps full‑session context within a size budget
+- Works as an interactive TUI or non‑interactive CLI
+- Zero project config; just point to your Codex logs
 
 TUI Keys
 
@@ -79,11 +87,17 @@ How It Works
 
 - Discovers `*.jsonl` logs under the sessions root.
 - Parses each file; expects the first line to be `session_meta`. Messages are derived from `event_msg` of type `user_message` and `agent_message`.
-- Builds a compressed full‑history primer:
+- Builds a compressed full‑history primer to resume Codex sessions from history:
   - A short system block instructing Codex to silently ingest.
   - Session metadata (ID, time range, counts).
   - All dialog messages included in chronological order; each message is truncated to fit a total size budget.
 - Launches Codex with the primer inline as a single argument. If too long, cxresume auto‑falls back to pty/clipboard injection.
+
+Also Known As
+
+- codex resume
+- resume codex sessions
+- load sessions from history
 
 Examples
 

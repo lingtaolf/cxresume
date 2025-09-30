@@ -1,12 +1,12 @@
-cxresume
-========
+cxresume（Codex Resume CLI）
+===========================
 [![npm version](https://img.shields.io/npm/v/cxresume.svg?logo=npm)](https://www.npmjs.com/package/cxresume)
 
 [English](./README.md)
 
-![cxresume](./ss/sc.png)
+![Codex Resume TUI – resume Codex sessions, load sessions from history](./ss/sc.png)
 
-一个交互式 TUI 工具，从 `~/.codex/sessions/{year}/{month}/{day}/*.jsonl` 发现 Codex 历史会话，自动构建“全量压缩 Primer”，并启动 Codex 让你无缝继续对话。
+Codex Resume（cxresume）是一个用于“继续/恢复 Codex 会话”的命令行/TUI 小工具：从 `~/.codex/sessions` 加载历史记录（load sessions from history），将完整对话压缩为单个 Primer，并启动 Codex 让你在原处继续（resume Codex sessions）。如果你在搜索 “codex resume”、“resume codex sessions” 或 “load sessions from history”，这个工具正是为此场景而生。
 
 安装
 
@@ -20,7 +20,15 @@ cxresume
 
 快速开始
 
-- 运行 `cxresume` 打开分屏 TUI：上半区列出会话，下半区展示最近对话预览。按 Enter 后，cxresume 会将“压缩后的全量历史”作为单个命令行参数传给 `codexCmd` 并启动 Codex。若参数过长，会自动降级为 pty/剪贴板注入。
+- 运行 `cxresume` 打开分屏 TUI：上半区列出会话，下半区展示最近对话预览。按 Enter 后，直接恢复 Codex 会话（resume Codex sessions）：cxresume 将“压缩后的全量历史”作为单个命令行参数传给 `codexCmd`，若参数过长会自动降级为 pty/剪贴板注入。
+
+为什么是 cxresume
+
+- 即刻从历史日志恢复 Codex 会话
+- 一条命令搜索并加载历史记录（load sessions from history）
+- 有损压缩，在预算内最大化保留上下文
+- 支持交互式 TUI 与非交互 CLI
+- 无需项目配置，只需指向 Codex 日志目录
 
 按键说明
 
@@ -79,11 +87,17 @@ cxresume
 
 - 从会话根目录发现 `*.jsonl` 日志。
 - 解析文件：第一行期望是 `session_meta`；对话消息来自 `type=event_msg` 且 `payload.type ∈ { user_message, agent_message }`。
-- 构建“全量压缩 Primer”：
+- 构建“全量压缩 Primer”（用于从历史记录恢复会话）：
   - 一个 System 指令块，提示 Codex 静默吸收上下文。
   - 会话元信息（ID、时间范围、消息数）。
   - 按时间顺序包含所有对话消息；每条内容按配置做长度截断，整体受总预算限制。
 - 将 Primer 作为单个命令行参数传入 `codexCmd` 启动。若参数太长，则自动降级为 pty/剪贴板注入。
+
+也叫 / 关键词
+
+- codex resume
+- resume codex sessions
+- load sessions from history
 
 示例
 
